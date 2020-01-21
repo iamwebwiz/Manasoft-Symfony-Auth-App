@@ -15,20 +15,4 @@ class FrontController extends AbstractController
     {
         return new Response('OMG! My first page already! Wooo!');
     }
-
-    /**
-     * @Route("/register", name="register")
-     */
-    public function showRegistrationPage(): Response
-    {
-        return $this->render('auth/register.html.twig');
-    }
-
-    /**
-     * @Route("/login", name="login")
-     */
-    public function showLoginPage(): Response
-    {
-        return $this->render('auth/login.html.twig');
-    }
 }
