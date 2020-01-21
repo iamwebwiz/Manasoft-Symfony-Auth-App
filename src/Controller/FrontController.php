@@ -13,6 +13,6 @@ class FrontController extends AbstractController
      */
     public function index(): Response
     {
-        return new Response('OMG! My first page already! Wooo!');
+        return $this->render('home.html.twig');
     }
 }

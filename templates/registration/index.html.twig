@@ -1,12 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello RegistrationController!{% endblock %}
+{% block title %}REGISTER{% endblock %}
 
 {% block body %}
-    <div class="card">
-        <div class="card-header">Register</div>
-        <div class="card-body">
-            {{ form(form) }}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    {% if app.user %}
+                        <div class="mb-3">
+                            <a href="{{ path('logout') }}" class="btn btn-danger">Logout</a>
+                        </div>
+                    {% else %}
+                        <h2>
+                            REGISTER
+                            <a href="{{ path('homepage') }}" class="btn btn-info float-right">Home</a>
+                            <div class="clearfix"></div>
+                        </h2>
+                        <hr>
+                        {{ form(form) }}
+                        <hr>
+                        Already registered? <a href="{{ path('login') }}">Click here to login</a>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
