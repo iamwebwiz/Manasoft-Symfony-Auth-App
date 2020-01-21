@@ -2,15 +2,16 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class FrontController
+class FrontController extends AbstractController
 {
     /**
      * @Route("/", name="homepage")
      */
-    public function index()
+    public function index(): Response
     {
         return new Response('OMG! My first page already! Wooo!');
     }
@@ -18,16 +19,16 @@ class FrontController
     /**
      * @Route("/register", name="register")
      */
-    public function showRegistrationPage()
+    public function showRegistrationPage(): Response
     {
-        return new Response('Registration page! Whoooo! 💪🏾💪🏾💪🏾');
+        return $this->render('auth/register.html.twig');
     }
 
     /**
      * @Route("/login", name="login")
      */
-    public function showLoginPage()
+    public function showLoginPage(): Response
     {
-        return new Response('My fantastic login page! 💪🏾💩💪🏾');
+        return $this->render('auth/login.html.twig');
     }
 }
